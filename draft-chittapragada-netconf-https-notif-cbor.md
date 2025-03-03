@@ -23,7 +23,7 @@ title: "CBOR Encoding for HTTPS-based Transport for YANG Notifications"
 abbrev: "https-notif-ext-cbor"
 category: Proposed Standard
 
-docname: draft-chittapragada-netconf-https-notif-cbor-latest
+docname: draft-chittapragada-netconf-https-notif-cbor
 submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
 number:
 date:
