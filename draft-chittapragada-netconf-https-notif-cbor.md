@@ -117,7 +117,6 @@ Diagnostic Notation:
    Server: example-server
    Cache-Control: no-cache
    Content-Type: application/json
-   ~~~ json
    {
    "receiver-capabilities": {
      "receiver-capability": [
@@ -127,7 +126,6 @@ Diagnostic Notation:
         ]
       }
    }
-   ~~~
 ~~~
 
 # Security Considerations
