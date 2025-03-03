@@ -103,7 +103,10 @@ The publisher sends a request to the receiver to learn its capabilities. In the 
 Testing markdown newline.\
 testing html newline tags<br />
 more test lines
-~~~
+
+
+
+~~~ http-request
 GET /some/path/capabilities HTTP/1.1
    Host: example.com
    Accept: application/cbor, application/xml;0.9, application/json;q=0.5
