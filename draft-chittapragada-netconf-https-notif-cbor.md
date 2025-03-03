@@ -35,12 +35,12 @@ keyword:
  - cbor
  - https
 venue:
-  group: Network Configuration Protocol
-  type: NETCONF Working Group
-  mail: netconf@ietf.org
-  arch: https://mailarchive.ietf.org/arch/browse/netconf/
-  github: Sidhub723/draft-chittapragada-netconf-https-notif-cbor
-  latest: https://sidhub723.github.io/draft-chittapragada-netconf-https-notif-cbor/draft-todo-yourname-protocol.html
+  group: WG
+  type: Working Group
+  mail: WG@example.com
+  arch: https://example.com/WG
+  github: USER/REPO
+  latest: https://example.com/LATEST
 
 author:
  -
