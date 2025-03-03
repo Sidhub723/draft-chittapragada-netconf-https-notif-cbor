@@ -158,7 +158,6 @@ Table of Contents
       Server: example-server
       Cache-Control: no-cache
       Content-Type: application/json
-      ~~~ json
       {
       "receiver-capabilities": {
         "receiver-capability": [
@@ -168,7 +167,6 @@ Table of Contents
            ]
          }
       }
-      ~~~
 
 5.  Security Considerations
 
