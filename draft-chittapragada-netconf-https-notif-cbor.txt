@@ -141,9 +141,11 @@ Table of Contents
    not supported then in XML or JSON in that order.
 
    Testing markdown newline.\ testing html newline tags
-   more test lines ~~~ GET /some/path/capabilities HTTP/1.1 Host:
-   example.com Accept: application/cbor, application/xml;0.9,
-   application/json;q=0.5 ~~~
+   more test lines
+
+   GET /some/path/capabilities HTTP/1.1
+      Host: example.com
+      Accept: application/cbor, application/xml;0.9, application/json;q=0.5
 
 4.2.  Response
 

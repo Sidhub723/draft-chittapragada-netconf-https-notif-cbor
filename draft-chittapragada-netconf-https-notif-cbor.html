@@ -1260,12 +1260,14 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 <p id="section-4.1-1">The publisher sends a request to the receiver to learn its capabilities. In the below example, the “Accept” states that the publisher wants to receive the capabilities response in CBOR but if not supported then in XML or JSON in that order.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
 <p id="section-4.1-2">Testing markdown newline.\
 testing html newline tags<br>
-more test lines
-~~~
+more test lines<a href="#section-4.1-2" class="pilcrow">¶</a></p>
+<div class="lang-http-request sourcecode" id="section-4.1-3">
+<pre>
 GET /some/path/capabilities HTTP/1.1
    Host: example.com
    Accept: application/cbor, application/xml;0.9, application/json;q=0.5
-~~~<a href="#section-4.1-2" class="pilcrow">¶</a></p>
+</pre><a href="#section-4.1-3" class="pilcrow">¶</a>
+</div>
 </section>
 </div>
 <div id="response">
