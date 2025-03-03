@@ -140,8 +140,10 @@ Table of Contents
    publisher wants to receive the capabilities response in CBOR but if
    not supported then in XML or JSON in that order.
 
-   GET /some/path/capabilities HTTP/1.1 Host: example.com Accept:
-   application/cbor, application/xml;0.9, application/json;q=0.5
+   Testing markdown newline.\ testing html newline tags
+   more test lines ~~~ GET /some/path/capabilities HTTP/1.1 Host:
+   example.com Accept: application/cbor, application/xml;0.9,
+   application/json;q=0.5 ~~~
 
 4.2.  Response
 
