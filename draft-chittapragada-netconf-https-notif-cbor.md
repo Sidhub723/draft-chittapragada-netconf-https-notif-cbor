@@ -16,12 +16,12 @@ keyword:
  - https
  - yang
 venue:
-  group: NETCONF
-  type: Working Group
-  mail: netconf@ietf.org
-  arch: https://mailarchive.ietf.org/arch/browse/netconf/
-  github: https://github.com/netconf-wg/restconf-trace-ctx-headers
-  latest: https://github.com/netconf-wg/restconf-trace-ctx-headers/blob/gh-pages/draft-ietf-netconf-restconf-trace-ctx-headers.txt
+  group: "NETCONF"
+  type: "Working Group"
+  mail: "netconf@ietf.org"
+  arch: "https://mailarchive.ietf.org/arch/browse/netconf/"
+  github: "https://github.com/netconf-wg/restconf-trace-ctx-headers"
+  latest: "https://github.com/netconf-wg/restconf-trace-ctx-headers/blob/gh-pages/draft-ietf-netconf-restconf-trace-ctx-headers.txt"
 
 stand_alone: yes
 smart_quotes: no
