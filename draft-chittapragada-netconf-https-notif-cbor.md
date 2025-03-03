@@ -100,9 +100,14 @@ YANG notifications can be encoded in CBOR using Names or SIDs in keys. Notificat
 
 The publisher sends a request to the receiver to learn its capabilities. In the below example, the “Accept” states that the publisher wants to receive the capabilities response in CBOR but if not supported then in XML or JSON in that order. 
 
+Testing markdown newline.\
+testing html newline tags<br />
+more test lines
+~~~
 GET /some/path/capabilities HTTP/1.1
    Host: example.com
    Accept: application/cbor, application/xml;0.9, application/json;q=0.5
+~~~
 
 ## Response
  If the receiver is able to reply using “application/cbor” and assuming it is capable of receiving JSON, XML and CBOR encoded messages the response would look like this
