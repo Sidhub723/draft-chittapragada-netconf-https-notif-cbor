@@ -16,13 +16,6 @@ keyword:
  - https
  - yang
 
-venue:
-  group: "NETCONF"
-  type: "Working Group"
-  mail: "WG@example.com"
-  arch: "https://example.com/WG"
-  github: "meherrushi/draft-chittapragada-netconf-https-notif-cbor"
-  latest: "https://meherrushi.github.io/draft-chittapragada-netconf-https-notif-cbor/draft-chittapragada-netconf-https-notif-cbor.html"
 
 author:
  -
@@ -135,6 +128,9 @@ Diagnostic Notation:
       }
    }
 ~~~
+
+
+
 
 # Security Considerations
 
