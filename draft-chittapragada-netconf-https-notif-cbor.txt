@@ -2,34 +2,42 @@
 
 
 
-WG Working Group                                              Y. N. Here
-Internet-Draft                                    Your Organization Here
-Intended status: Informational                              3 March 2025
-Expires: 4 September 2025
+NETCONF Working Group                                B. M. Chittapragada
+Internet-Draft                                                   S. Bhat
+Intended status: Standards Track                               V. T. Rao
+Expires: 4 September 2025                                      H. Arshad
+                                                         M. P. Tahiliani
+                   National Institute of Technology Karnataka, Surathkal
+                                                            3 March 2025
 
 
-                           TODO - Your title
-                  draft-todo-yourname-protocol-latest
+     CBOR Encoding for HTTPS-based Transport for YANG Notifications
+          draft-chittapragada-netconf-https-notif-cbor-latest
 
 Abstract
 
-   TODO Abstract
+   This document extends RFCXXXX (I-D.draft-ietf-netconf-https-notif-15)
+   by introducing CBOR encoding for YANG notifications over HTTPS in
+   addition to the existing JSON and XML encoding schemes.
 
 About This Document
 
    This note is to be removed before publishing as an RFC.
 
    The latest revision of this draft can be found at
-   https://example.com/LATEST.  Status information for this document may
-   be found at https://datatracker.ietf.org/doc/draft-todo-yourname-
-   protocol/.
+   https://meherrushi.github.io/draft-chittapragada-netconf-https-notif-
+   cbor/draft-chittapragada-netconf-https-notif-cbor.html.  Status
+   information for this document may be found at
+   https://datatracker.ietf.org/doc/draft-chittapragada-netconf-https-
+   notif-cbor/.
 
-   Discussion of this document takes place on the WG Working Group
+   Discussion of this document takes place on the NETCONF Working Group
    mailing list (mailto:WG@example.com), which is archived at
    https://example.com/WG.
 
    Source for this draft and an issue tracker can be found at
-   https://github.com/USER/REPO.
+   https://github.com/meherrushi/draft-chittapragada-netconf-https-
+   notif-cbor.
 
 Status of This Memo
 
@@ -66,15 +74,36 @@ Table of Contents
 
    1.  Introduction
    2.  Conventions and Definitions
-   3.  Security Considerations
-   4.  IANA Considerations
-   5.  Normative References
+   3.  Terminology
+   4.  CBOR Encoding
+     4.1.  Request
+     4.2.  Response
+       4.2.1.  CBOR using names as keys
+   5.  Security Considerations
+   6.  IANA Considerations
+   7.  Normative References
    Acknowledgments
-   Author's Address
+   Authors' Addresses
 
 1.  Introduction
 
-   TODO Introduction
+   RFCXXXX [I-D.draft-ietf-netconf-https-notif-15] introduces a
+   framework for the transfer of YANG notifications over HTTPS using
+   JSON and XML encoding schemes.  This document extends RFCXXXX
+   [I-D.draft-ietf-netconf-https-notif-15] by introducing CBOR encoding
+   for event notifications over HTTPS in addition to the existing
+   encoding schemes.
+
+   In RFCXXXX, the capabilities HTTP-target resource allows a publisher
+   to retrieve supported encoding formats via a GET request, while the
+   relay-notification resource enables the publisher to send YANG
+   notifications via POST requests.  These requests and responses use
+   different content types based on the selected encoding scheme.  CBOR
+   offers a more efficient and compact representation of YANG
+   notifications.
+
+   Examples of the GET and POST request and reply encoded in CBOR are
+   also provided in this document.
 
 2.  Conventions and Definitions
 
@@ -84,15 +113,89 @@ Table of Contents
    BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
    capitals, as shown here.
 
-3.  Security Considerations
+3.  Terminology
 
-   TODO Security
+   This document uses the following terms defined in Section 2,3 and 4
+   of RFCXXXX [I-D.draft-ietf-netconf-https-notif-15].  - Capabilities
+   Resource - Relay-Notification - Event Notification
 
-4.  IANA Considerations
+   The following term(s) are defined in Subscription to YANG
+   Notifications [RFC8639].  - Publisher - Receiver - Subscribed
+   Notifications
+
+4.  CBOR Encoding
+
+   YANG notifications can be encoded in CBOR using Names or SIDs in
+   keys.  Notifications encoded using names is similar to JSON encoding
+   as defined in Section 3.4 and 4.3 of RFCXXXX
+   [I-D.draft-ietf-netconf-https-notif-15].  Notification encoded using
+   YANG-SIDs replaces the names of the keys of the CBOR encoded message
+   for a 63 bit unsigned integer.  In this case, the keys of the encoded
+   data use the SID value as defined in Section 3.2 of [RFC9254].
+
+4.1.  Request
+
+   The publisher sends a request to the receiver to learn its
+   capabilities.  In the below example, the “Accept” states that the
+   publisher wants to receive the capabilities response in CBOR but if
+   not supported then in XML or JSON in that order.
+
+   GET /some/path/capabilities HTTP/1.1 Host: example.com Accept:
+   application/cbor, application/xml;0.9, application/json;q=0.5
+
+4.2.  Response
+
+   If the receiver is able to reply using “application/cbor” and
+   assuming it is capable of receiving JSON, XML and CBOR encoded
+   messages the response would look like this
+
+4.2.1.  CBOR using names as keys
+
+   Diagnostic Notation:
+
+      HTTP/1.1 200 OK
+      Date: Tue, 4 March 2025 20:33:30 GMT
+      Server: example-server
+      Cache-Control: no-cache
+      Content-Type: application/json
+      ~~~ json
+      {
+      "receiver-capabilities": {
+        "receiver-capability": [
+          "urn:ietf:capability:https-notif-receiver:encoding:json",
+          "urn:ietf:capability:https-notif-receiver:encoding:xml",
+          "urn:ietf:capability:https-notif-receiver:encoding:cbor"
+           ]
+         }
+      }
+      ~~~
+
+5.  Security Considerations
+
+   Addition of the CBOR encoding introduces no specific security
+   exposures or risks other that the ones mentioned in [RFC9254] and RFC
+   XXXX [I-D.draft-ietf-netconf-https-notif-15] (An HTTPS-based
+   Transport for YANG Notifications)
+
+6.  IANA Considerations
 
    This document has no IANA actions.
 
-5.  Normative References
+7.  Normative References
+
+   [I-D.draft-ietf-netconf-https-notif-15]
+              Jethanandani, M. and K. Watsen, "An HTTPS-based Transport
+              for YANG Notifications", Work in Progress, Internet-Draft,
+              draft-ietf-netconf-https-notif-15, 1 February 2024,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-netconf-
+              https-notif-15>.
+
+   [I-D.ietf-netconf-http-client-server-15]
+              Watsen, K., "YANG Groupings for HTTP 1.1/2.0 Clients and
+              HTTP Servers", Work in Progress, Internet-Draft, draft-
+              ietf-netconf-http-client-server-15, 26 January 2024,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-netconf-
+              http-client-server-15>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -103,12 +206,50 @@ Table of Contents
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
+   [RFC8639]  Voit, E., Clemm, A., Gonzalez Prieto, A., Nilsen-Nygaard,
+              E., and A. Tripathy, "Subscription to YANG Notifications",
+              RFC 8639, DOI 10.17487/RFC8639, September 2019,
+              <https://www.rfc-editor.org/rfc/rfc8639>.
+
+   [RFC8949]  Bormann, C. and P. Hoffman, "Concise Binary Object
+              Representation (CBOR)", STD 94, RFC 8949,
+              DOI 10.17487/RFC8949, December 2020,
+              <https://www.rfc-editor.org/rfc/rfc8949>.
+
+   [RFC9254]  Veillette, M., Ed., Petrov, I., Ed., Pelov, A., Bormann,
+              C., and M. Richardson, "Encoding of Data Modeled with YANG
+              in the Concise Binary Object Representation (CBOR)",
+              RFC 9254, DOI 10.17487/RFC9254, July 2022,
+              <https://www.rfc-editor.org/rfc/rfc9254>.
+
 Acknowledgments
 
-   TODO acknowledge.
+   The authors acknowlegde the support of the authors of RFC XXXX
+   [I-D.draft-ietf-netconf-https-notif-15] for the encouragment and
+   guidance provided to draft this document .
 
-Author's Address
+Authors' Addresses
 
-   Your Name Here
-   Your Organization Here
-   Email: your.email@example.com
+   Bharadwaja Meherrushi Chittapragada
+   National Institute of Technology Karnataka, Surathkal
+   Email: meherrushi2@gmail.com
+
+
+   Siddharth Bhat
+   National Institute of Technology Karnataka, Surathkal
+   Email: siddharth.bhat10@gmail.com
+
+
+   Vartika T Rao
+   National Institute of Technology Karnataka, Surathkal
+   Email: vartikatrao@gmail.com
+
+
+   Hayyan Arshad
+   National Institute of Technology Karnataka, Surathkal
+   Email: hayyanhamnah@gmail.com
+
+
+   Mohit P. Tahiliani
+   National Institute of Technology Karnataka, Surathkal
+   Email: tahiliani@nitk.edu.in
