@@ -19,21 +19,22 @@
 # Change the file extension to match the format (.xml for XML, etc...)
 #
 ###
-title: "CBOR Encoding for HTTPS-based Transport for YANG Notifications"
-abbrev: "https-notif-ext-cbor"
-category: Proposed Standard
+title: "TODO - Your title"
+abbrev: "TODO - Abbreviation"
+category: info
 
-docname: draft-chittapragada-netconf-https-notif-cbor
+docname: draft-todo-yourname-protocol-latest
 submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
 number:
 date:
 consensus: true
 v: 3
-area: "Network Configuration Protocol"
-workgroup: "NETCONF Working Group"
+area: AREA
+workgroup: WG Working Group
 keyword:
- - cbor
- - https
+ - next generation
+ - unicorn
+ - sparkling distributed ledger
 venue:
   group: WG
   type: Working Group
