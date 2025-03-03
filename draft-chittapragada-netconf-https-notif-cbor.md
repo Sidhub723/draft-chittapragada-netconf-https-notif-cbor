@@ -15,7 +15,6 @@ keyword:
  - cbor
  - https
  - yang
-
 venue:
   group: WG
   type: Working Group
