@@ -16,6 +16,13 @@ keyword:
  - https
  - yang
 
+venue:
+  group: WG
+  type: Working Group
+  mail: WG@example.com
+  arch: https://example.com/WGGGGGGGGGGGGGG
+  github: USER/REPO
+  latest: https://example.com/LATEST
 
 author:
  -
